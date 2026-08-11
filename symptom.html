@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Symptom Checker | DocNear</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="symptom.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+
+<!-- =================================================
+                    NAVBAR
+================================================= -->
+
+<header class="navbar">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <img src="logo.png"
+             alt="DocNear Logo">
+
+        <div class="logo-text">
+
+            <h2>Care Near</h2>
+
+            <p>Always Here</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="doctors.html">
+            Doctors
+        </a>
+
+        <a href="hospitals.html">
+            Hospitals
+        </a>
+
+        <a href="departments.html">
+            Departments
+        </a>
+
+        <a href="symptom.html"
+           class="active">
+            AI Symptom
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =================================================
+                    HERO SECTION
+================================================= -->
+
+<section class="symptom-hero">
+
+
+    <div class="hero-content">
+
+
+        <!-- BADGE -->
+
+        <div class="ai-badge">
+
+            <i class="fa-solid fa-robot"></i>
+
+            AI Healthcare Assistant
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+
+            Understand Your Symptoms
+
+            <br>
+
+            <span>Find the Right Doctor</span>
+
+        </h1>
+
+
+        <!-- DESCRIPTION -->
+
+        <p>
+
+            Describe your symptoms and DocNear will
+            suggest the most relevant medical department
+            and doctor type for further consultation.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+                SYMPTOM CHECKER
+================================================= -->
+
+<section class="checker-section">
+
+
+    <div class="checker-container">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="symptom-input-card">
+
+
+            <div class="card-header">
+
+                <div class="icon-box">
+
+                    <i class="fa-solid fa-stethoscope"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        Tell Us Your Symptoms
+                    </h2>
+
+                    <p>
+                        Describe what you are experiencing
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- INPUT -->
+
+            <div class="input-area">
+
+                <label>
+                    Your Symptoms
+                </label>
+
+                <textarea
+                    id="symptomInput"
+                    placeholder="Example: I have fever, headache and weakness..."
+                    rows="6">
+                </textarea>
+
+            </div>
+
+
+            <!-- QUICK SYMPTOMS -->
+
+            <div class="quick-symptoms">
+
+                <p>
+                    Quick Symptoms
+                </p>
+
+
+                <div class="symptom-tags">
+
+                    <button onclick="selectSymptom('Fever')">
+                        🌡️ Fever
+                    </button>
+
+                    <button onclick="selectSymptom('Headache')">
+                        🤕 Headache
+                    </button>
+
+                    <button onclick="selectSymptom('Cough')">
+                        😷 Cough
+                    </button>
+
+                    <button onclick="selectSymptom('Chest Pain')">
+                        ❤️ Chest Pain
+                    </button>
+
+                    <button onclick="selectSymptom('Stomach Pain')">
+                        🤢 Stomach Pain
+                    </button>
+
+                    <button onclick="selectSymptom('Skin Allergy')">
+                        🧴 Skin Allergy
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="checker-buttons">
+
+                <button
+                    class="check-btn"
+                    onclick="checkSymptoms()">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Check Symptoms
+
+                </button>
+
+
+                <button
+                    class="clear-btn"
+                    onclick="clearSymptoms()">
+
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    Clear
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="result-card"
+             id="resultCard">
+
+
+            <!-- DEFAULT RESULT -->
+
+            <div class="result-placeholder"
+                 id="resultPlaceholder">
+
+                <div class="result-icon">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+
+                <h2>
+                    AI Suggestion
+                </h2>
+
+
+                <p>
+
+                    Enter your symptoms and click
+                    <b>"Check Symptoms"</b> to get
+                    a recommendation.
+
+                </p>
+
+            </div>
+
+
+            <!-- RESULT -->
+
+            <div class="result-content"
+                 id="resultContent"
+                 style="display:none;">
+
+
+                <div class="result-title">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <h2>
+                        Suggested Care
+                    </h2>
+
+                </div>
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="recommendation-box">
+
+                    <span>
+                        Recommended Department
+                    </span>
+
+                    <h3 id="departmentResult">
+                        -
+                    </h3>
+
+                </div>
+
+
+                <!-- DOCTOR -->
+
+                <div class="recommendation-box">
+
+                    <span>
+                        Recommended Doctor
+                    </span>
+
+                    <h3 id="doctorResult">
+                        -
+                    </h3>
+
+                </div>
+
+
+                <!-- GUIDANCE -->
+
+                <div class="guidance-box">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <div>
+
+                        <h4>
+                            Health Guidance
+                        </h4>
+
+                        <p id="guidanceResult">
+                            -
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMERGENCY -->
+
+                <div class="emergency-box"
+                     id="emergencyBox">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <p>
+                        If symptoms are severe,
+                        sudden, or life-threatening,
+                        seek emergency medical care.
+                    </p>
+
+                </div>
+
+
+                <!-- FIND DOCTOR -->
+
+                <a href="doctor.html"
+                   class="find-doctor-btn">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                    Find Doctors
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+                POPULAR SYMPTOMS
+================================================= -->
+
+<section class="popular-section">
+
+
+    <div class="section-title">
+
+        <span>
+            Common Health Concerns
+        </span>
+
+        <h2>
+            Popular Symptoms
+        </h2>
+
+        <p>
+            Select a symptom to quickly start
+            your health search.
+        </p>
+
+    </div>
+
+
+
+    <div class="popular-grid">
+
+
+        <div class="popular-card">
+
+            <i class="fa-solid fa-temperature-high"></i>
+
+            <h3>
+                Fever
+            </h3>
+
+            <p>
+                Body temperature and fever-related concerns.
+            </p>
+
+        </div>
+
+
+        <div class="popular-card">
+
+            <i class="fa-solid fa-head-side-virus"></i>
+
+            <h3>
+                Headache
+            </h3>
+
+            <p>
+                Headache, migraine and related symptoms.
+            </p>
+
+        </div>
+
+
+        <div class="popular-card">
+
+            <i class="fa-solid fa-lungs"></i>
+
+            <h3>
+                Breathing Problem
+            </h3>
+
+            <p>
+                Cough, breathing difficulty and chest concerns.
+            </p>
+
+        </div>
+
+
+        <div class="popular-card">
+
+            <i class="fa-solid fa-bone"></i>
+
+            <h3>
+                Joint Pain
+            </h3>
+
+            <p>
+                Bone, joint and muscle-related problems.
+            </p>
+
+        </div>
+
+
+        <div class="popular-card">
+
+            <i class="fa-solid fa-eye"></i>
+
+            <h3>
+                Eye Problem
+            </h3>
+
+            <p>
+                Vision and common eye-related concerns.
+            </p>
+
+        </div>
+
+
+        <div class="popular-card">
+
+            <i class="fa-solid fa-tooth"></i>
+
+            <h3>
+                Tooth Pain
+            </h3>
+
+            <p>
+                Tooth, gum and oral health concerns.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+                    DISCLAIMER
+================================================= -->
+
+<section class="disclaimer">
+
+    <i class="fa-solid fa-shield-heart"></i>
+
+    <div>
+
+        <h3>
+            Important Notice
+        </h3>
+
+        <p>
+
+            DocNear's AI symptom checker provides
+            general guidance only. It does not provide
+            a medical diagnosis. Always consult a qualified
+            healthcare professional for proper diagnosis
+            and treatment.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+                    FOOTER
+================================================= -->
+
+<footer>
+
+    <h2>
+        DocNear
+    </h2>
+
+    <p>
+        Find Doctor, Stay Healthy.
+    </p>
+
+    <p>
+        © 2026 DocNear. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =================================================
+                    JAVASCRIPT
+================================================= -->
+
+<script src="symptom.js"></script>
+
+
+</body>
+
+</html>

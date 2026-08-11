@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors | DocNear</title>
+
+    <link rel="stylesheet" href="doctor.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+
+        <div class="logo-text">
+            <h2>Care Near</h2>
+            <p>Always Here</p>
+        </div>
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="doctor.html" class="active">Doctors</a>
+        <a href="hospitals.html">Hospitals</a>
+        <a href="departments.html">Departments</a>
+        <a href="symptom.html">AI Symptom</a>
+
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="doctor-hero">
+
+    <span class="badge">
+        <i class="fa-solid fa-user-doctor"></i>
+        Our Specialists
+    </span>
+
+    <h1>Find the Right Doctor</h1>
+
+    <p>
+        Browse experienced and trusted doctors by department.
+    </p>
+
+    <div class="search-box">
+
+        <input
+        type="text"
+        id="doctorSearch"
+        placeholder="Search doctor or department">
+
+        <button onclick="searchDoctor()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= DOCTORS ================= -->
+
+<section class="doctor-section">
+
+    <div class="doctor-grid"></div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h2>DocNear</h2>
+
+<p>Find Doctor, Stay Healthy.</p>
+
+<p>© 2026 DocNear. All Rights Reserved.</p>
+
+</footer>
+
+<script src="doctor.js"></script>
+
+</body>
+</html>
