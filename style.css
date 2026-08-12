@@ -920,3 +920,167 @@ nav a:hover::after {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   MOBILE CLOCK FIX
+========================================== */
+
+@media (max-width: 600px) {
+
+    .live-clock-card {
+        width: calc(100% - 30px);
+        max-width: 360px;
+        height: 120px;
+
+        padding: 15px 16px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        box-sizing: border-box;
+    }
+
+
+    /* LEFT SIDE */
+
+    .digital-time {
+        font-size: 22px;
+    }
+
+    .clock-location {
+        font-size: 11px;
+    }
+
+    .clock-date {
+        font-size: 10px;
+    }
+
+
+    /* WATCH */
+
+    .analog-clock {
+        width: 76px;
+        height: 76px;
+
+        margin-left: 8px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* NUMBERS */
+
+    .clock-number {
+        font-size: 9px;
+
+        width: 14px;
+        height: 14px;
+
+        line-height: 14px;
+    }
+
+
+    /* NUMBER POSITION */
+
+    .n12 {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .n1 {
+        top: 5px;
+        right: 16px;
+    }
+
+    .n2 {
+        top: 17px;
+        right: 3px;
+    }
+
+    .n3 {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    .n4 {
+        bottom: 17px;
+        right: 3px;
+    }
+
+    .n5 {
+        bottom: 5px;
+        right: 16px;
+    }
+
+    .n6 {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .n7 {
+        bottom: 5px;
+        left: 16px;
+    }
+
+    .n8 {
+        bottom: 17px;
+        left: 3px;
+    }
+
+    .n9 {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .n10 {
+        top: 17px;
+        left: 3px;
+    }
+
+    .n11 {
+        top: 5px;
+        left: 16px;
+    }
+
+
+    /* CLOCK HANDS */
+
+    .hour-hand {
+        height: 21px;
+        width: 3px;
+        margin-left: -1.5px;
+    }
+
+    .minute-hand {
+        height: 28px;
+        width: 3px;
+        margin-left: -1.5px;
+    }
+
+    .second-hand {
+        height: 31px;
+        width: 2px;
+        margin-left: -1px;
+    }
+
+
+    /* CENTER DOT */
+
+    .clock-center {
+        width: 7px;
+        height: 7px;
+    }
+
+}
