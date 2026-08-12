@@ -529,37 +529,46 @@ nav a:hover::after {
     margin-bottom:15px;
 }
 
-/* =========================
-        FOOTER
-========================= */
+/* ==========================
+          FOOTER
+========================== */
 
 footer{
+  
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    margin-top:80px;
 
-    background:#00ff99;
-	
+  background:
+    linear-gradient(135deg, #0f766e, #009999);
 
-    color:black;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 
-    text-align:center;
+  border:1px solid rgba(255,255,255,0.25);
 
-    padding:20px 20px;
+ 
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.15),
+    inset 0 1px 1px rgba(255,255,255,0.3),
+    inset 0 -1px 1px rgba(255,255,255,0.1);
+
+  position:relative;
+  overflow:hidden;
+  height: 100px;
 }
 
-footer h3{
-
-    font-size:28px;
-
+footer h2{
+    font-size:30px;
     margin-bottom:10px;
-	color: white;
 }
 
 footer p{
-
     margin-top:10px;
+    opacity:.95;
 }
-
 /* =========================
       RESPONSIVE
 ========================= */

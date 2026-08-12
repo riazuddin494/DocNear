@@ -938,3 +938,963 @@ document.addEventListener(
 
     }
 );
+
+
+
+
+
+
+
+
+/* =========================================================
+   DOCNEAR AI MEDICAL ASSISTANT
+========================================================= */
+
+
+/* ==========================================
+   MEDICAL KNOWLEDGE
+========================================== */
+
+const medicalKnowledge = {
+
+    diabetes: {
+        keywords: ["diabetes", "diabetic", "sugar", "blood sugar"],
+        answer: `
+            <strong>🩺 Diabetes</strong>
+
+            <p>
+            Diabetes is a condition where blood glucose
+            levels become too high because the body does not
+            produce enough insulin or cannot use insulin
+            effectively.
+            </p>
+
+            <p>
+            Common symptoms may include increased thirst,
+            frequent urination, tiredness and unexplained
+            weight changes.
+            </p>
+
+            <div class="ai-advice">
+                💡 Regular blood sugar monitoring and a healthy
+                lifestyle are important. Consult a doctor for
+                proper diagnosis and treatment.
+            </div>
+        `
+    },
+
+
+    hypertension: {
+        keywords: [
+            "high blood pressure",
+            "hypertension",
+            "blood pressure",
+            "bp"
+        ],
+        answer: `
+            <strong>❤️ High Blood Pressure</strong>
+
+            <p>
+            High blood pressure occurs when the force of blood
+            against the artery walls remains higher than normal.
+            </p>
+
+            <p>
+            It often does not cause noticeable symptoms, which
+            is why regular blood pressure checking is important.
+            </p>
+
+            <div class="ai-advice">
+                🥗 Maintaining a healthy diet, regular physical
+                activity and following your doctor's advice can
+                help manage blood pressure.
+            </div>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Cardiologist / Medicine Specialist</b>
+            </p>
+        `
+    },
+
+
+    fever: {
+        keywords: ["fever", "temperature", "hot body"],
+        answer: `
+            <strong>🌡️ Fever</strong>
+
+            <p>
+            Fever is usually a temporary increase in body
+            temperature and can occur with infections or
+            other conditions.
+            </p>
+
+            <p>
+            Rest and adequate fluid intake are generally
+            helpful.
+            </p>
+
+            <div class="ai-advice">
+                ⚠️ If fever is very high, persistent, or associated
+                with serious symptoms, seek medical attention.
+            </div>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Medicine Specialist</b>
+            </p>
+        `
+    },
+
+
+    headache: {
+        keywords: [
+            "headache",
+            "head pain",
+            "migraine"
+        ],
+        answer: `
+            <strong>🧠 Headache</strong>
+
+            <p>
+            Headaches can have many causes, including stress,
+            dehydration, lack of sleep, migraine and other
+            medical conditions.
+            </p>
+
+            <div class="ai-advice">
+                💧 Staying hydrated, getting enough sleep and
+                reducing excessive stress may help with some
+                common headaches.
+            </div>
+
+            <p>
+                👨‍⚕️ For frequent or severe headaches:
+                <b>Neurologist</b>
+            </p>
+        `
+    },
+
+
+    cough: {
+        keywords: [
+            "cough",
+            "dry cough",
+            "coughing"
+        ],
+        answer: `
+            <strong>🫁 Cough</strong>
+
+            <p>
+            Cough can occur due to infections, allergies,
+            asthma, irritation or other respiratory conditions.
+            </p>
+
+            <p>
+            If a cough continues for a long time or is associated
+            with breathing difficulty, medical evaluation is
+            recommended.
+            </p>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Chest Specialist / Pulmonologist</b>
+            </p>
+        `
+    },
+
+
+    stomach: {
+        keywords: [
+            "stomach",
+            "gastric",
+            "acidity",
+            "gas",
+            "abdominal pain"
+        ],
+        answer: `
+            <strong>🩺 Stomach Problems</strong>
+
+            <p>
+            Stomach discomfort can have different causes such
+            as acidity, indigestion, infection or other
+            gastrointestinal problems.
+            </p>
+
+            <div class="ai-advice">
+                🥗 Avoiding foods that trigger your symptoms,
+                drinking enough water and maintaining regular
+                meals may help some people.
+            </div>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Gastroenterologist</b>
+            </p>
+        `
+    },
+
+
+    skin: {
+        keywords: [
+            "skin",
+            "acne",
+            "rash",
+            "itching",
+            "pimple",
+            "allergy"
+        ],
+        answer: `
+            <strong>🧴 Skin Problems</strong>
+
+            <p>
+            Skin problems can have many causes including
+            allergies, infections, acne and irritation.
+            </p>
+
+            <p>
+            Avoid using unknown creams or medicines without
+            professional advice.
+            </p>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Dermatologist</b>
+            </p>
+        `
+    },
+
+
+    eye: {
+        keywords: [
+            "eye",
+            "eyes",
+            "eye pain",
+            "blurred vision",
+            "vision"
+        ],
+        answer: `
+            <strong>👁️ Eye Problems</strong>
+
+            <p>
+            Eye discomfort or vision changes can have several
+            possible causes.
+            </p>
+
+            <div class="ai-advice">
+                ⚠️ Sudden vision loss, severe eye pain or a
+                serious eye injury requires urgent medical care.
+            </div>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Ophthalmologist</b>
+            </p>
+        `
+    },
+
+
+    heart: {
+        keywords: [
+            "heart",
+            "chest pain",
+            "heart pain",
+            "palpitation",
+            "heartbeat"
+        ],
+        answer: `
+            <strong>❤️ Heart & Chest Symptoms</strong>
+
+            <p>
+            Chest discomfort and unusual heartbeat can have
+            different causes, including heart-related problems.
+            </p>
+
+            <div class="ai-emergency">
+                🚨 If someone has severe chest pain, difficulty
+                breathing, fainting or pain spreading to the arm
+                or jaw, seek emergency medical care immediately.
+            </div>
+
+            <p>
+                👨‍⚕️ Suggested:
+                <b>Cardiologist</b>
+            </p>
+        `
+    },
+
+
+    cbc: {
+        keywords: [
+            "cbc",
+            "cbc test",
+            "complete blood count"
+        ],
+        answer: `
+            <strong>🧪 CBC Test</strong>
+
+            <p>
+            CBC stands for Complete Blood Count. It measures
+            different components of blood, including red blood
+            cells, white blood cells, hemoglobin and platelets.
+            </p>
+
+            <p>
+            Doctors may use a CBC as part of evaluating various
+            health conditions.
+            </p>
+
+            <div class="ai-advice">
+                💡 Your CBC result should be interpreted together
+                with your symptoms and other clinical information.
+            </div>
+        `
+    },
+
+
+    doctor: {
+        keywords: [
+            "which doctor",
+            "what doctor",
+            "specialist",
+            "doctor for",
+            "need a doctor"
+        ],
+        answer: `
+            <strong>👨‍⚕️ Finding the Right Doctor</strong>
+
+            <p>
+            DocNear can help you find doctors based on your
+            healthcare needs.
+            </p>
+
+            <p>
+            For specific symptoms, you can also use our
+            <b>AI Symptom</b> page for more detailed guidance.
+            </p>
+
+            <button
+                class="ai-action-btn"
+                onclick="goToDoctors()">
+
+                Find a Doctor →
+            </button>
+        `
+    },
+
+
+    hospital: {
+        keywords: [
+            "hospital",
+            "find hospital",
+            "nearby hospital",
+            "hospital near"
+        ],
+        answer: `
+            <strong>🏥 Find a Hospital</strong>
+
+            <p>
+            You can explore hospitals available through the
+            DocNear hospital directory.
+            </p>
+
+            <button
+                class="ai-action-btn"
+                onclick="goToHospitals()">
+
+                Find Hospitals →
+            </button>
+        `
+    },
+
+
+    department: {
+        keywords: [
+            "department",
+            "medical department",
+            "speciality",
+            "specialty"
+        ],
+        answer: `
+            <strong>🏥 Medical Departments</strong>
+
+            <p>
+            DocNear includes different medical departments such
+            as Cardiology, Neurology, Dermatology, Orthopedics,
+            Gastroenterology, ENT and more.
+            </p>
+
+            <button
+                class="ai-action-btn"
+                onclick="goToDepartments()">
+
+                Explore Departments →
+            </button>
+        `
+    },
+
+
+    medicine: {
+        keywords: [
+            "medicine",
+            "medication",
+            "drug",
+            "tablet",
+            "capsule"
+        ],
+        answer: `
+            <strong>💊 Medicine Information</strong>
+
+            <p>
+            Medicines should be used according to appropriate
+            medical guidance. The correct medicine and dose can
+            depend on age, condition, other medicines and medical
+            history.
+            </p>
+
+            <div class="ai-advice">
+                ⚠️ Do not start or change prescription medicines
+                based only on an online answer.
+            </div>
+        `
+    },
+
+
+    healthy: {
+        keywords: [
+            "healthy",
+            "healthy lifestyle",
+            "health tips",
+            "stay healthy"
+        ],
+        answer: `
+            <strong>🥗 Healthy Lifestyle</strong>
+
+            <p>
+            Some general healthy habits include:
+            </p>
+
+            <ul>
+                <li>🥗 Eat a balanced diet</li>
+                <li>💧 Drink enough water</li>
+                <li>🏃 Stay physically active</li>
+                <li>😴 Get adequate sleep</li>
+                <li>🚭 Avoid tobacco</li>
+            </ul>
+
+            <p>
+            Individual health needs can vary, so consult a
+            healthcare professional when necessary.
+            </p>
+        `
+    }
+
+};
+
+
+/* =========================================================
+   FIND ANSWER
+========================================================= */
+
+function findMedicalAnswer(question) {
+
+    const text =
+        question.toLowerCase().trim();
+
+
+    for (
+        const category in medicalKnowledge
+    ) {
+
+        const keywords =
+            medicalKnowledge[category].keywords;
+
+
+        for (
+            const keyword of keywords
+        ) {
+
+            if (text.includes(keyword)) {
+
+                return medicalKnowledge[
+                    category
+                ].answer;
+
+            }
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   SEND AI MESSAGE
+========================================================= */
+
+function sendAIMessage() {
+
+    const input =
+        document.getElementById("aiInput");
+
+    const chat =
+        document.getElementById("aiChatArea");
+
+
+    if (!input || !chat) {
+        return;
+    }
+
+
+    const question =
+        input.value.trim();
+
+
+    if (question === "") {
+        return;
+    }
+
+
+    /* USER MESSAGE */
+
+    addUserMessage(
+        question
+    );
+
+
+    input.value = "";
+
+
+    /* Scroll */
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+
+    /* Typing */
+
+    const typing =
+        addTypingMessage();
+
+
+    setTimeout(
+        function() {
+
+            typing.remove();
+
+
+            const answer =
+                findMedicalAnswer(
+                    question
+                );
+
+
+            if (answer) {
+
+                addAIMessage(
+                    answer
+                );
+
+            } else {
+
+                addAIMessage(`
+
+                    <strong>
+                        🤖 DocNear AI
+                    </strong>
+
+                    <p>
+                        I'm still learning about that topic.
+                        I can currently help with general
+                        information about diseases, symptoms,
+                        medicines, medical tests, doctors,
+                        hospitals and health tips.
+                    </p>
+
+                    <div class="ai-advice">
+
+                        💡 Try asking:
+
+                        <br><br>
+
+                        • What is diabetes?<br>
+                        • What is CBC test?<br>
+                        • Which doctor treats skin problems?<br>
+                        • What is high blood pressure?
+
+                    </div>
+
+                `);
+
+            }
+
+        },
+        900
+    );
+
+}
+
+
+/* =========================================================
+   ADD USER MESSAGE
+========================================================= */
+
+function addUserMessage(
+    message
+) {
+
+    const chat =
+        document.getElementById(
+            "aiChatArea"
+        );
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.className =
+        "user-message";
+
+
+    div.innerHTML = `
+        <p>${escapeHTML(message)}</p>
+    `;
+
+
+    chat.appendChild(div);
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+/* =========================================================
+   ADD AI MESSAGE
+========================================================= */
+
+function addAIMessage(
+    message
+) {
+
+    const chat =
+        document.getElementById(
+            "aiChatArea"
+        );
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.className =
+        "ai-message";
+
+
+    div.innerHTML = `
+
+        <div class="message-avatar">
+
+            <i class="fa-solid fa-robot"></i>
+
+        </div>
+
+        <div class="message-content">
+
+            <strong>
+                DocNear AI
+            </strong>
+
+            ${message}
+
+        </div>
+
+    `;
+
+
+    chat.appendChild(div);
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+/* =========================================================
+   TYPING ANIMATION
+========================================================= */
+
+function addTypingMessage() {
+
+    const chat =
+        document.getElementById(
+            "aiChatArea"
+        );
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.className =
+        "ai-message";
+
+
+    div.innerHTML = `
+
+        <div class="message-avatar">
+
+            <i class="fa-solid fa-robot"></i>
+
+        </div>
+
+        <div class="message-content">
+
+            <strong>
+                DocNear AI
+            </strong>
+
+            <p class="typing-dots">
+
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+
+            </p>
+
+        </div>
+
+    `;
+
+
+    chat.appendChild(div);
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+
+    return div;
+
+}
+
+
+/* =========================================================
+   SUGGESTION BUTTON
+========================================================= */
+
+function askSuggestion(
+    question
+) {
+
+    const input =
+        document.getElementById(
+            "aiInput"
+        );
+
+
+    if (!input) {
+        return;
+    }
+
+
+    input.value =
+        question;
+
+
+    sendAIMessage();
+
+}
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const input =
+            document.getElementById(
+                "aiInput"
+            );
+
+
+        if (!input) {
+            return;
+        }
+
+
+        input.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    event.preventDefault();
+
+                    sendAIMessage();
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CLEAR / NEW CHAT
+========================================================= */
+
+function clearAIChat() {
+
+    const chat =
+        document.getElementById(
+            "aiChatArea"
+        );
+
+
+    if (!chat) {
+        return;
+    }
+
+
+    chat.innerHTML = `
+
+        <div class="ai-message">
+
+            <div class="message-avatar">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div class="message-content">
+
+                <strong>
+                    DocNear AI
+                </strong>
+
+                <p>
+                    Hello! 👋 I'm DocNear AI.
+                    <br>
+                    Ask me anything about health,
+                    medicine, diseases, medical tests,
+                    doctors or hospitals.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="ai-suggestions">
+
+            <button
+                onclick="askSuggestion('What is diabetes?')">
+
+                🩺 What is diabetes?
+
+            </button>
+
+            <button
+                onclick="askSuggestion('What is CBC test?')">
+
+                🧪 What is CBC test?
+
+            </button>
+
+            <button
+                onclick="askSuggestion('Which doctor treats skin problems?')">
+
+                👨‍⚕️ Which doctor for skin?
+
+            </button>
+
+            <button
+                onclick="askSuggestion('What are healthy foods for high blood pressure?')">
+
+                🥗 Healthy food for BP
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function goToDoctors() {
+
+    window.location.href =
+        "doctor.html";
+
+}
+
+
+function goToHospitals() {
+
+    window.location.href =
+        "hospitals.html";
+
+}
+
+
+function goToDepartments() {
+
+    window.location.href =
+        "departments.html";
+
+}
+
+
+/* =========================================================
+   SECURITY
+   Prevent HTML injection in user messages
+========================================================= */
+
+function escapeHTML(
+    text
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+
+
+
+
+

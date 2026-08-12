@@ -318,7 +318,7 @@ nav a:hover::after {
 
     margin:20px auto;
 
-    color:#666;
+    color:#000000;
 
     line-height:1.8;
 }
@@ -391,14 +391,6 @@ nav a:hover::after {
     box-shadow:0 20px 45px rgba(11,116,255,.18);
 }
 
-.doctor-card img{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid #0b74ff;
-    margin-bottom:20px;
-}
 
 .doctor-card h3{
     color:#0b74ff;
@@ -502,11 +494,30 @@ nav a:hover::after {
 ========================== */
 
 footer{
-    margin-top:70px;
-    background:#0b74ff;
-    color:#fff;
-    text-align:center;
-    padding:50px 20px;
+  
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+
+  background:
+    linear-gradient(135deg, #0f766e, #009999);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border:1px solid rgba(255,255,255,0.25);
+
+ 
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.15),
+    inset 0 1px 1px rgba(255,255,255,0.3),
+    inset 0 -1px 1px rgba(255,255,255,0.1);
+
+  position:relative;
+  overflow:hidden;
+  height: 100px;
 }
 
 footer h2{
