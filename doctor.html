@@ -28,13 +28,31 @@
 
     <nav>
 
-        <a href="index.html">Home</a>
-        <a href="doctor.html" class="active">Doctors</a>
-        <a href="hospitals.html">Hospitals</a>
-        <a href="departments.html">Departments</a>
-        <a href="symptom.html">AI Symptom</a>
+        <a href="index.html" data-lang="home">Home</a>
+		<a href="doctor.html" data-lang="doctors">Doctors</a>
+		<a href="hospitals.html" data-lang="hospitals">Hospitals</a>
+		<a href="departments.html" data-lang="departments">Departments</a>
+		<a href="symptom.html" data-lang="aiSymptom">AI Symptom</a>
 
     </nav>
+
+	<!-- LANGUAGE -->
+
+    <div class="language-switcher">
+
+        <button id="englishBtn"
+                onclick="changeLanguage('en')">
+            EN
+        </button>
+
+        <span>|</span>
+
+        <button id="banglaBtn"
+                onclick="changeLanguage('bn')">
+            বাংলা
+        </button>
+
+    </div>
 
 </header>
 
@@ -89,6 +107,7 @@
 </footer>
 
 <script src="doctor.js"></script>
+<script src="language.js"></script>
 
 </body>
 </html>

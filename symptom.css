@@ -1,13 +1,8 @@
 /* =========================
+/* =========================
    GOOGLE FONT
 ========================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
-/* =========================
-   GLOBAL
-========================= */
 
 *{
     margin:0;
@@ -16,160 +11,259 @@
     font-family:'Poppins',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
+/* ================= BODY ================= */
 body{
-    background:
-        linear-gradient(135deg,#eaf7ff,#f5fbff,#e2f4ff);
-
-    color:#1e293b;
-    min-height:100vh;
+  background: linear-gradient(135deg, #0f766e, #22c55e);
+  color: white;
+  min-height: 100vh;
 }
 
 
-/* =========================
-   NAVBAR
-========================= */
+/* ================= NAVBAR ================= */
 
 .navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    width:100%;
+  margin:30px;
+  padding:15px 30px;
 
-    padding:18px 8%;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.22),
+      rgba(255,255,255,0.06)
+    );
 
-    display:flex;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 
-    justify-content:space-between;
+  border:1px solid rgba(255,255,255,0.25);
 
-    align-items:center;
+  border-radius:50px;
 
-    background:rgba(255,255,255,.70);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.15),
+    inset 0 1px 1px rgba(255,255,255,0.3),
+    inset 0 -1px 1px rgba(255,255,255,0.1);
 
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    box-shadow:0 8px 25px rgba(0,0,0,.07);
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
+  position:relative;
+  overflow:hidden;
 }
 
 
+.navbar::before{
+  content:"";
+  position:absolute;
+
+  top:0;
+  left:-100%;
+
+  width:50%;
+  height:100%;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+
+  transform:skewX(-25deg);
+
+  animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+
+  0%{
+    left:-100%;
+  }
+
+  100%{
+    left:150%;
+  }
+
+}
+
+
+/* LOGO AREA */
 .logo{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
 }
 
-
 .logo img{
-
-    width:55px;
-
-    height:55px;
-
-    object-fit:contain;
+    width:80px;
+    height:80px;
+    border-radius:50%;
 }
 
-
+/* TEXT */
 .logo-text h2{
+    font-size:22px;
+    font-weight:700;
+    color:white;
+    margin:0;
 
-    color:#0878ff;
-
-    font-size:23px;
-
-    line-height:1.1;
+    animation: glow 3s ease-in-out infinite;
 }
-
 
 .logo-text p{
-
-    color:#667085;
-
     font-size:12px;
+    color:#d9f99d;
+    letter-spacing:2px;
 
-    margin-top:4px;
+    animation: slideText 3s ease-in-out infinite;
+}
+
+/* GLOW EFFECT */
+@keyframes glow{
+
+    0%{
+        text-shadow:0 0 5px rgba(255,255,255,.4);
+    }
+
+    50%{
+        text-shadow:
+        0 0 10px #d9f99d,
+        0 0 20px #d9f99d;
+    }
+
+    100%{
+        text-shadow:0 0 5px rgba(255,255,255,.4);
+    }
+}
+
+/* SUBTITLE ANIMATION */
+@keyframes slideText{
+
+    0%{
+        opacity:0.5;
+        transform:translateX(-5px);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateX(5px);
+    }
+
+    100%{
+        opacity:0.5;
+        transform:translateX(-5px);
+    }
 }
 
 
-nav{
+/* Menu */
+nav a {
+  position: relative;
+  margin: 0 6px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 20px;
+  transition: 0.3s;
+  font-weight: 700;
+}
+
+/* Hover Glass Effect */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* Underline animation */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #a3e635;
+  transition: 0.3s;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after {
+  width: 60%;
+}
+
+/* Right side */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+/* LANGUAGE */
+
+.language-switcher{
 
     display:flex;
 
     align-items:center;
 
-    gap:28px;
+    gap:5px;
+
+    padding:4px 7px;
+
+    background:rgba(255,255,255,.8);
+
+    border:1px solid #dcecff;
+
+    border-radius:30px;
+
+    flex-shrink:0;
 }
 
+.language-switcher button{
 
-nav a{
+    border:none;
 
-    text-decoration:none;
+    background:transparent;
 
-    color:#344054;
+    color:#667085;
 
-    font-size:15px;
+    font-size:11px;
 
     font-weight:600;
 
-    position:relative;
+    padding:6px 8px;
+
+    border-radius:20px;
+
+    cursor:pointer;
 
     transition:.3s;
 }
 
+.language-switcher button:hover{
 
-nav a::after{
+    color:#0878ff;
+}
 
-    content:"";
-
-    position:absolute;
-
-    width:0;
-
-    height:2px;
+.language-switcher button.active{
 
     background:#0878ff;
 
-    left:0;
+    color:#fff;
 
-    bottom:-7px;
-
-    transition:.3s;
+    box-shadow:
+    0 4px 12px rgba(8,120,255,.25);
 }
 
+.language-switcher span{
 
-nav a:hover{
+    color:#b8c4d0;
 
-    color:#0878ff;
+    font-size:11px;
 }
-
-
-nav a:hover::after{
-
-    width:100%;
-}
-
-
-nav a.active{
-
-    color:#0878ff;
-}
-
-
-nav a.active::after{
-
-    width:100%;
-}
-
 
 /* =========================
    HERO
@@ -293,7 +387,7 @@ nav a.active::after{
 
 .hero-content h1 span{
 
-    color:#0878ff;
+    color:#fbfdff;
 }
 
 
@@ -303,7 +397,7 @@ nav a.active::after{
 
     margin:22px auto 0;
 
-    color:#667085;
+    color:#00ffff;
 
     line-height:1.8;
 
@@ -950,7 +1044,7 @@ nav a.active::after{
 
 .section-title span{
 
-    color:#0878ff;
+    color:#ffffff;
 
     font-size:13px;
 
@@ -1106,36 +1200,34 @@ nav a.active::after{
 
 
 /* =========================
-   FOOTER
+        FOOTER
 ========================= */
 
 footer{
 
-    background:linear-gradient(135deg,#0878ff,#0066d6);
+    margin-top:80px;
 
-    color:#fff;
+    background:#00ff99;
+	
+
+    color:black;
 
     text-align:center;
 
-    padding:45px 20px;
+    padding:20px 20px;
 }
 
-
-footer h2{
+footer h3{
 
     font-size:28px;
 
-    margin-bottom:8px;
+    margin-bottom:10px;
+	color: white;
 }
-
 
 footer p{
 
-    margin-top:8px;
-
-    font-size:13px;
-
-    opacity:.9;
+    margin-top:10px;
 }
 
 

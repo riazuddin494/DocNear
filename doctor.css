@@ -198,6 +198,85 @@ nav a:hover::after {
   gap: 10px;
 }
 
+
+
+
+/* ==========================================
+   LANGUAGE SWITCHER
+========================================== */
+
+.language-switcher{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-left:20px;
+
+    padding:5px 8px;
+
+    background:rgba(255,255,255,.75);
+
+    border:1px solid rgba(8,120,255,.12);
+
+    border-radius:30px;
+
+    box-shadow:0 5px 15px rgba(8,120,255,.08);
+
+}
+
+
+.language-switcher button{
+
+    border:none;
+
+    background:transparent;
+
+    color:#667085;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    padding:6px 9px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.language-switcher button:hover{
+
+    color:#0878ff;
+
+}
+
+
+.language-switcher button.active{
+
+    background:#0878ff;
+
+    color:#fff;
+
+    box-shadow:0 4px 10px rgba(8,120,255,.2);
+
+}
+
+
+.language-switcher span{
+
+    color:#b0bac5;
+
+    font-size:12px;
+
+}
+
 /* =========================
          HERO
 ========================= */
