@@ -1,1617 +1,699 @@
-/* ================= RESET ================= */
+/* =========================
+   BASIC SETTINGS
+========================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
 }
 
-/* ================= BODY ================= */
-body{
-  background: linear-gradient(135deg, #0f766e, #22c55e);
-  color: white;
-  min-height: 100vh;
-}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 
+    color: #234;
 
-/* ================= NAVBAR ================= */
-
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  margin:30px;
-  padding:15px 30px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.22),
-      rgba(255,255,255,0.06)
+    background: linear-gradient(
+        135deg,
+        #e9f9ff,
+        #ccefff,
+        #f7fcff
     );
-
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-
-  border:1px solid rgba(255,255,255,0.25);
-
-  border-radius:50px;
-
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.15),
-    inset 0 1px 1px rgba(255,255,255,0.3),
-    inset 0 -1px 1px rgba(255,255,255,0.1);
-
-  position:relative;
-  overflow:hidden;
 }
 
 
-.navbar::before{
-  content:"";
-  position:absolute;
+/* =========================
+   NAVBAR
+========================= */
 
-  top:0;
-  left:-100%;
+.navbar {
+    width: 90%;
 
-  width:50%;
-  height:100%;
+    margin: 20px auto;
 
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.25),
-    transparent
-  );
+    padding: 15px 25px;
 
-  transform:skewX(-25deg);
+    display: flex;
 
-  animation:shine 6s linear infinite;
-}
+    justify-content: space-between;
 
-@keyframes shine{
+    align-items: center;
 
-  0%{
-    left:-100%;
-  }
+    background: rgba(255, 255, 255, 0.55);
 
-  100%{
-    left:150%;
-  }
+    backdrop-filter: blur(15px);
 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.15);
 }
 
 
-/* LOGO AREA */
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
+/* Logo */
+
+.logo {
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #075d80;
 }
 
-.logo img{
-    width:80px;
-    height:80px;
-    border-radius:50%;
+.logo span {
+    color: #0d8abc;
 }
 
-/* TEXT */
-.logo-text h2{
-    font-size:22px;
-    font-weight:700;
-    color:white;
-    margin:0;
+.logo small {
+    display: block;
 
-    animation: glow 3s ease-in-out infinite;
-}
+    font-size: 10px;
 
-.logo-text p{
-    font-size:12px;
-    color:#d9f99d;
-    letter-spacing:2px;
+    font-weight: normal;
 
-    animation: slideText 3s ease-in-out infinite;
-}
-
-/* GLOW EFFECT */
-@keyframes glow{
-
-    0%{
-        text-shadow:0 0 5px rgba(255,255,255,.4);
-    }
-
-    50%{
-        text-shadow:
-        0 0 10px #d9f99d,
-        0 0 20px #d9f99d;
-    }
-
-    100%{
-        text-shadow:0 0 5px rgba(255,255,255,.4);
-    }
-}
-
-/* SUBTITLE ANIMATION */
-@keyframes slideText{
-
-    0%{
-        opacity:0.5;
-        transform:translateX(-5px);
-    }
-
-    50%{
-        opacity:1;
-        transform:translateX(5px);
-    }
-
-    100%{
-        opacity:0.5;
-        transform:translateX(-5px);
-    }
+    color: #567;
 }
 
 
 /* Menu */
-nav a {
-  position: relative;
-  margin: 0 6px;
-  text-decoration: none;
-  color: white;
-  padding: 10px 10px;
-  border-radius: 20px;
-  transition: 0.3s;
-  font-weight: 700;
+
+.menu {
+    display: flex;
+
+    gap: 25px;
 }
 
-/* Hover Glass Effect */
-nav a:hover {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+.menu a {
+    text-decoration: none;
+
+    color: #075d80;
+
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
-/* Underline animation */
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background: #a3e635;
-  transition: 0.3s;
-  transform: translateX(-50%);
-}
-
-nav a:hover::after {
-  width: 60%;
-}
-
-/* Right side */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.menu a:hover {
+    color: #0d9bd0;
 }
 
 
+/* =========================
+   HOME PAGE
+========================= */
 
-/* Contact button */
-.contact-btn {
-  padding: 10px 18px;
-  border-radius: 25px;
-  border: none;
-  background: #a3e635;
-  color: black;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
-}
 
-.contact-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #a3e635;
-}
+/* Welcome */
 
+.welcome-section {
+    width: 90%;
 
-/* ==========================================
-   LANGUAGE SWITCHER
-========================================== */
+    margin: 40px auto;
 
-.language-switcher{
+    padding: 80px 60px;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
-
-    margin-left:20px;
-
-    padding:5px 8px;
-
-    background:rgba(255,255,255,.75);
-
-    border:1px solid rgba(8,120,255,.12);
-
-    border-radius:30px;
-
-    box-shadow:0 5px 15px rgba(8,120,255,.08);
-
-}
-
-
-.language-switcher button{
-
-    border:none;
-
-    background:transparent;
-
-    color:#667085;
-
-    font-size:12px;
-
-    font-weight:600;
-
-    padding:6px 9px;
-
-    border-radius:20px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.language-switcher button:hover{
-
-    color:#0878ff;
-
-}
-
-
-.language-switcher button.active{
-
-    background:#0878ff;
-
-    color:#fff;
-
-    box-shadow:0 4px 10px rgba(8,120,255,.2);
-
-}
-
-
-.language-switcher span{
-
-    color:#b0bac5;
-
-    font-size:12px;
-
-}
-
-/* ================= HERO LAYOUT ================= */
-.hero{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:60px;
-  gap:40px;
-}
-
-/* LEFT */
-.hero-left{
-  max-width:500px;
-}
-
-.hero-left h1{
-  font-size:48px;
-}
-
-.hero-left span{
-  color:#d9f99d;
-}
-
-/* RIGHT SIDE */
-.hero-right{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-/* GLASS CARD BASE */
-.glass{
-  background:rgba(255,255,255,0.12);
-  backdrop-filter:blur(15px);
-
-  border:1px solid rgba(255,255,255,0.2);
-
-  border-radius:30px;
-  padding:20px;
-  width:320px;
-}
-
-
-
-/* RESULT CARD */
-.result-card h3{
-  margin-bottom:10px;
-  color:#d9f99d;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .hero-right{
-    align-items:center;
-  }
-}
-
-
-
-
-
-
-/* ================= ABOUT DOCNEAR ================= */
-
-.about-docnear{
-    padding:80px 60px;
-}
-
-.about-container{
-    max-width:1100px;
-    margin:auto;
-
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:30px;
-
-    padding:50px;
-}
-
-.about-badge{
-    display:inline-block;
-
-    padding:8px 16px;
-
-    background:rgba(255,255,255,0.15);
-
-    border-radius:20px;
-
-    margin-bottom:20px;
-}
-
-.about-container h2{
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-.about-container > p{
-    line-height:1.8;
-    opacity:.9;
-    margin-bottom:40px;
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.about-card{
-    background: rgba(255,255,255,0.1);
-
-    border:1px solid rgba(255,255,255,0.15);
-
-    backdrop-filter: blur(10px);
-
-    border-radius:20px;
-
-    padding:25px;
-
-    transition:.3s;
-}
-
-.about-card:hover{
-    transform: translateY(-5px);
-    background: rgba(255,255,255,0.15);
-}
-
-.about-card h3{
-    margin-bottom:15px;
-    color:#d9f99d;
-}
-
-.about-card p{
-    line-height:1.6;
-    opacity:.9;
-}
-
-
-
-/* ==========================================
-   GLASSMORPHISM LIVE CLOCK
-========================================== */
-
-.live-clock-card {
-
-    width: 360px;
-    height: 136px;
+    min-height: 400px;
 
     display: flex;
+
     align-items: center;
-    justify-content: space-between;
 
-    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.45);
 
-    margin-top: 25px;
-
-    /* Glass Effect */
-    background: rgba(255, 255, 255, 0.14);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    /* Glass Border */
-    border: 1px solid rgba(255, 255, 255, 0.30);
-
-    border-radius: 22px;
-
-    /* Soft Glass Shadow */
-    box-shadow:
-        0 8px 32px rgba(31, 38, 135, 0.15),
-        inset 0 1px 1px rgba(255, 255, 255, 0.25);
-
-    color: white;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-/* ==========================================
-   GLASS LIGHT
-========================================== */
-
-.live-clock-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 140px;
-    height: 140px;
-
-    top: -80px;
-    right: 70px;
-
-    background: rgba(255, 255, 255, 0.12);
-
-    border-radius: 50%;
-
-    filter: blur(5px);
-
-    pointer-events: none;
-}
-
-
-/* ==========================================
-   LEFT INFORMATION
-========================================== */
-
-.clock-info {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-
-/* DIGITAL TIME */
-
-.digital-time {
-
-    font-size: 26px;
-
-    font-weight: 600;
-
-    letter-spacing: .3px;
-
-    color: #ffffff;
-
-    line-height: 1.2;
-
-    margin-bottom: 8px;
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,.15);
-}
-
-
-/* LOCATION */
-
-.clock-location {
-
-    font-size: 13px;
-
-    color: rgba(255,255,255,.92);
-
-    margin-bottom: 4px;
-
-    letter-spacing: .1px;
-}
-
-
-/* DATE */
-
-.clock-date {
-
-    font-size: 12px;
-
-    color: rgba(255,255,255,.72);
-}
-
-
-/* ==========================================
-   ANALOG CLOCK
-========================================== */
-
-.analog-clock {
-
-    position: relative;
-
-    width: 88px;
-    height: 88px;
-
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    /* Glass Circle */
-
-    background: rgba(255,255,255,.08);
-
-    border: 1px solid rgba(255,255,255,.35);
-
-    backdrop-filter: blur(8px);
-
-    -webkit-backdrop-filter: blur(8px);
-
-    box-shadow:
-        inset 0 0 15px rgba(255,255,255,.08),
-        0 5px 20px rgba(0,0,0,.08);
-
-    z-index: 2;
-}
-
-
-/* ==========================================
-   CLOCK NUMBERS
-========================================== */
-
-.clock-number {
-
-    position: absolute;
-
-    color: rgba(255,255,255,.95);
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    width: 16px;
-    height: 16px;
-
-    text-align: center;
-
-    line-height: 16px;
-
-    text-shadow:
-        0 1px 4px rgba(0,0,0,.25);
-}
-
-
-/* Number positions */
-
-.n12 {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.n1 {
-    top: 6px;
-    right: 19px;
-}
-
-.n2 {
-    top: 19px;
-    right: 5px;
-}
-
-.n3 {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-}
-
-.n4 {
-    bottom: 19px;
-    right: 5px;
-}
-
-.n5 {
-    bottom: 6px;
-    right: 19px;
-}
-
-.n6 {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.n7 {
-    bottom: 6px;
-    left: 19px;
-}
-
-.n8 {
-    bottom: 19px;
-    left: 5px;
-}
-
-.n9 {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-}
-
-.n10 {
-    top: 19px;
-    left: 5px;
-}
-
-.n11 {
-    top: 6px;
-    left: 19px;
-}
-
-
-/* ==========================================
-   CLOCK HANDS
-========================================== */
-
-.clock-hand {
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 50%;
-
-    transform-origin: bottom center;
-
-    border-radius: 10px;
-
-    z-index: 3;
-}
-
-
-/* Hour */
-
-.hour-hand {
-
-    width: 4px;
-
-    height: 25px;
-
-    background: rgba(255,255,255,.95);
-
-    margin-left: -2px;
-
-    box-shadow:
-        0 0 5px rgba(255,255,255,.3);
-}
-
-
-/* Minute */
-
-.minute-hand {
-
-    width: 3px;
-
-    height: 33px;
-
-    background: rgba(255,255,255,.95);
-
-    margin-left: -1.5px;
-
-    box-shadow:
-        0 0 5px rgba(255,255,255,.3);
-}
-
-
-/* Second */
-
-.second-hand {
-
-    width: 2px;
-
-    height: 37px;
-
-    background: #39b8ff;
-
-    margin-left: -1px;
-
-    box-shadow:
-        0 0 8px rgba(57,184,255,.7);
-}
-
-
-/* ==========================================
-   CLOCK CENTER
-========================================== */
-
-.clock-center {
-
-    position: absolute;
-
-    width: 8px;
-    height: 8px;
-
-    background: #39b8ff;
-
-    border: 2px solid rgba(255,255,255,.95);
-
-    border-radius: 50%;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 5;
-
-    box-shadow:
-        0 0 8px rgba(57,184,255,.7);
-}
-
-
-/* ==========================================
-   HOVER EFFECT
-========================================== */
-
-.live-clock-card {
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border .3s ease;
-}
-
-
-.live-clock-card:hover {
-
-    transform: translateY(-3px);
-
-    border-color:
-        rgba(255,255,255,.45);
-
-    box-shadow:
-        0 15px 40px rgba(31,38,135,.20),
-        inset 0 1px 1px rgba(255,255,255,.3);
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 600px) {
-
-    .live-clock-card {
-
-        width: 100%;
-
-        max-width: 360px;
-
-        height: 125px;
-
-        padding: 15px 20px;
-
-        border-radius: 20px;
-    }
-
-
-    .digital-time {
-
-        font-size: 23px;
-    }
-
-
-    .analog-clock {
-
-        width: 80px;
-        height: 80px;
-    }
-
-}
-.live-clock-card {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   MOBILE CLOCK FIX
-========================================== */
-
-@media (max-width: 600px) {
-
-    .live-clock-card {
-        width: calc(100% - 30px);
-        max-width: 360px;
-        height: 120px;
-
-        padding: 15px 16px;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        box-sizing: border-box;
-    }
-
-
-    /* LEFT SIDE */
-
-    .digital-time {
-        font-size: 22px;
-    }
-
-    .clock-location {
-        font-size: 11px;
-    }
-
-    .clock-date {
-        font-size: 10px;
-    }
-
-
-    /* WATCH */
-
-    .analog-clock {
-        width: 76px;
-        height: 76px;
-
-        margin-left: 8px;
-
-        flex-shrink: 0;
-    }
-
-
-    /* NUMBERS */
-
-    .clock-number {
-        font-size: 9px;
-
-        width: 14px;
-        height: 14px;
-
-        line-height: 14px;
-    }
-
-
-    /* NUMBER POSITION */
-
-    .n12 {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .n1 {
-        top: 5px;
-        right: 16px;
-    }
-
-    .n2 {
-        top: 17px;
-        right: 3px;
-    }
-
-    .n3 {
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-    }
-
-    .n4 {
-        bottom: 17px;
-        right: 3px;
-    }
-
-    .n5 {
-        bottom: 5px;
-        right: 16px;
-    }
-
-    .n6 {
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .n7 {
-        bottom: 5px;
-        left: 16px;
-    }
-
-    .n8 {
-        bottom: 17px;
-        left: 3px;
-    }
-
-    .n9 {
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-    }
-
-    .n10 {
-        top: 17px;
-        left: 3px;
-    }
-
-    .n11 {
-        top: 5px;
-        left: 16px;
-    }
-
-
-    /* CLOCK HANDS */
-
-    .hour-hand {
-        height: 21px;
-        width: 3px;
-        margin-left: -1.5px;
-    }
-
-    .minute-hand {
-        height: 28px;
-        width: 3px;
-        margin-left: -1.5px;
-    }
-
-    .second-hand {
-        height: 31px;
-        width: 2px;
-        margin-left: -1px;
-    }
-
-
-    /* CENTER DOT */
-
-    .clock-center {
-        width: 7px;
-        height: 7px;
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   DOCNEAR AI CHAT
-========================================== */
-
-.ai-chat-card {
-
-    width: 100%;
-    max-width: 300px;
-
-    height: 400px;
-
-    padding: 18px;
+    backdrop-filter: blur(15px);
 
     border-radius: 25px;
 
-    background: rgba(255, 255, 255, 0.18);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255, 255, 255, 0.35);
-
-    box-shadow:
-        0 15px 40px rgba(31, 38, 135, 0.15);
-
-    display: flex;
-    flex-direction: column;
-
-    overflow: hidden;
-	margin-bottom:10px;
-
+    box-shadow: 0 10px 30px rgba(0, 100, 150, 0.12);
 }
 
 
-/* ==========================================
-   HEADER
-========================================== */
-
-.ai-chat-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding-bottom: 15px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.25);
-
+.welcome-text {
+    max-width: 700px;
 }
 
 
-.ai-title {
+.small-title {
+    color: #0d8abc;
 
-    display: flex;
+    font-weight: bold;
 
-    align-items: center;
-
-    gap: 11px;
-
+    letter-spacing: 2px;
 }
 
 
-.ai-icon {
+.welcome-text h1 {
+    font-size: 50px;
 
-    width: 42px;
-    height: 42px;
+    line-height: 1.2;
 
-    display: flex;
+    color: #075d80;
 
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background:
-        rgba(80, 190, 255, .18);
-
-    border:
-        1px solid rgba(255,255,255,.30);
-
-    color: #159ee8;
-
-    font-size: 18px;
-
+    margin: 15px 0;
 }
 
 
-.ai-title h3 {
+.welcome-text h1 span {
+    color: #0d9bd0;
+}
 
-    margin: 0;
 
+.welcome-text p {
     font-size: 17px;
 
-    color: #0878b8;
+    line-height: 1.8;
 
+    color: #536b75;
 }
 
 
-.ai-title p {
+/* =========================
+   COMMON CONTENT
+========================= */
 
-    margin: 3px 0 0;
+.content-section {
+    width: 90%;
 
-    font-size: 10px;
-
-    color: #667085;
-
+    margin: 60px auto;
 }
 
 
-.online-dot {
+.section-heading {
+    text-align: center;
 
-    display: inline-block;
-
-    width: 6px;
-    height: 6px;
-
-    margin-left: 4px;
-
-    border-radius: 50%;
-
-    background: #20c878;
-
-    box-shadow:
-        0 0 7px rgba(32,200,120,.7);
-
+    margin-bottom: 30px;
 }
 
 
-/* NEW CHAT */
+.section-heading h2 {
+    font-size: 32px;
 
-.new-chat-btn {
+    color: #075d80;
 
-    width: 35px;
-    height: 35px;
-
-    border: none;
-
-    border-radius: 11px;
-
-    background:
-        rgba(255,255,255,.35);
-
-    color: #0878b8;
-
-    cursor: pointer;
-
-    transition: .25s;
-
+    margin-bottom: 10px;
 }
 
 
-.new-chat-btn:hover {
-
-    transform: rotate(180deg);
-
-    background:
-        rgba(255,255,255,.55);
-
+.section-heading p {
+    color: #607d8b;
 }
 
 
-/* ==========================================
-   CHAT AREA
-========================================== */
+/* Information Box */
 
-.ai-chat-area {
+.info-box {
+    max-width: 900px;
 
-    flex: 1;
+    margin: auto;
 
-    overflow-y: auto;
+    padding: 35px;
 
-    padding: 18px 5px;
+    background: rgba(255, 255, 255, 0.55);
 
-}
-
-
-/* Scrollbar */
-
-.ai-chat-area::-webkit-scrollbar {
-
-    width: 4px;
-
-}
-
-
-.ai-chat-area::-webkit-scrollbar-thumb {
-
-    background:
-        rgba(8,120,184,.25);
-
-    border-radius: 10px;
-
-}
-
-
-/* ==========================================
-   AI MESSAGE
-========================================== */
-
-.ai-message {
-
-    display: flex;
-
-    gap: 9px;
-
-    margin-bottom: 18px;
-
-}
-
-
-.message-avatar {
-
-    width: 30px;
-    height: 30px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-
-    background:
-        rgba(80,190,255,.18);
-
-    color: #0878b8;
-
-    font-size: 12px;
-
-}
-
-
-.message-content {
-
-    max-width: 85%;
-
-    padding: 11px 13px;
-
-    border-radius:
-        5px 15px 15px 15px;
-
-    background:
-        rgba(255,255,255,.48);
-
-    border:
-        1px solid rgba(255,255,255,.35);
-
-}
-
-
-.message-content strong {
-
-    display: block;
-
-    margin-bottom: 5px;
-
-    font-size: 11px;
-
-    color: #0878b8;
-
-}
-
-
-.message-content p {
-
-    margin: 0;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-
-    color: #344054;
-
-}
-
-
-/* ==========================================
-   USER MESSAGE
-========================================== */
-
-.user-message {
-
-    display: flex;
-
-    justify-content: flex-end;
-
-    margin-bottom: 15px;
-
-}
-
-
-.user-message p {
-
-    max-width: 80%;
-
-    margin: 0;
-
-    padding: 10px 13px;
-
-    border-radius:
-        15px 5px 15px 15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #119bd7,
-            #0878b8
-        );
-
-    color: white;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-
-}
-
-
-/* ==========================================
-   SUGGESTIONS
-========================================== */
-
-.ai-suggestions {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-
-    padding-left: 39px;
-
-}
-
-
-.ai-suggestions button {
-
-    border: 1px solid
-        rgba(8,120,184,.18);
-
-    background:
-        rgba(255,255,255,.35);
-
-    color: #0878b8;
-
-    padding: 7px 10px;
+    backdrop-filter: blur(12px);
 
     border-radius: 20px;
 
-    font-size: 10px;
-
-    cursor: pointer;
-
-    transition: .25s;
-
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.12);
 }
 
 
-.ai-suggestions button:hover {
+.info-box h3 {
+    color: #0d8abc;
 
-    background:
-        rgba(255,255,255,.65);
-
-    transform: translateY(-2px);
-
+    font-size: 23px;
 }
 
 
-/* ==========================================
-   INPUT
-========================================== */
+.info-box p {
+    line-height: 1.8;
 
-.ai-input-area {
+    color: #536b75;
+}
+
+
+/* =========================
+   HEALTH TIPS
+========================= */
+
+.three-box {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.simple-box {
+    width: 280px;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 20px rgba(0, 100, 150, 0.12);
+
+    transition: 0.3s;
+}
+
+
+.simple-box:hover {
+    transform: translateY(-6px);
+}
+
+
+.simple-box h3 {
+    color: #0d8abc;
+}
+
+
+.simple-box p {
+    line-height: 1.6;
+
+    color: #536b75;
+}
+
+
+/* =========================
+   FOOD SECTION
+========================= */
+
+.food-section {
+    width: 90%;
+
+    margin: 60px auto;
+
+    padding: 50px 20px;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    border-radius: 25px;
+}
+
+
+.food-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.food-list div {
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0, 100, 150, 0.10);
+}
+
+
+.food-list h3 {
+    color: #0d8abc;
+}
+
+
+.food-list p {
+    color: #536b75;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BODY CARE
+========================= */
+
+.body-section {
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 60px auto;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.12);
+}
+
+
+.body-section h2 {
+    text-align: center;
+
+    color: #075d80;
+
+    margin-bottom: 25px;
+}
+
+
+.body-section li {
+    margin: 15px 0;
+
+    color: #536b75;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   OTHER PAGE HEADER
+========================= */
+
+.page-header {
+    width: 90%;
+
+    margin: 45px auto;
+
+    padding: 55px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.50);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 22px;
+
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.12);
+}
+
+
+.page-header h1 {
+    font-size: 40px;
+
+    color: #075d80;
+
+    margin-bottom: 10px;
+}
+
+
+.page-header p {
+    color: #607d8b;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   DOCTORS PAGE
+========================= */
+
+.doctor-section {
+    width: 90%;
+
+    max-width: 950px;
+
+    margin: 50px auto;
+}
+
+
+.doctor-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-bottom: 25px;
+
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.12);
+
+    transition: 0.3s;
+}
+
+
+.doctor-profile:hover {
+    transform: translateX(5px);
+}
+
+
+/* Doctor Image Placeholder */
+
+.doctor-image {
+    width: 110px;
+
+    height: 110px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
-
-    padding: 8px;
-
-    border-radius: 16px;
-
-    background:
-        rgba(255,255,255,.40);
-
-    border:
-        1px solid rgba(255,255,255,.35);
-
-}
-
-
-.ai-input-area input {
-
-    flex: 1;
-
-    min-width: 0;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    padding: 9px;
-
-    color: #344054;
-
-    font-size: 12px;
-
-}
-
-
-.ai-input-area input::placeholder {
-
-    color: #98a2b3;
-
-}
-
-
-.ai-send-btn {
-
-    width: 38px;
-    height: 38px;
+    justify-content: center;
 
     flex-shrink: 0;
 
-    border: none;
+    border-radius: 50%;
 
-    border-radius: 12px;
+    background: #d8f3ff;
 
-    background:
-        linear-gradient(
-            135deg,
-            #22b7f5,
-            #0878b8
-        );
+    color: #0d8abc;
 
-    color: white;
+    font-size: 28px;
 
-    cursor: pointer;
-
-    transition: .25s;
-
-}
-
-
-.ai-send-btn:hover {
-
-    transform: scale(1.05);
-
-}
-
-
-/* ==========================================
-   DISCLAIMER
-========================================== */
-
-.ai-disclaimer {
-
-    padding-top: 9px;
-
-    text-align: center;
-
-    font-size: 8px;
-
-    line-height: 1.4;
-
-    color: #98a2b3;
-
-}
-
-
-.ai-disclaimer i {
-
-    margin-right: 3px;
-
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media(max-width:600px) {
-
-    .ai-chat-card {
-
-        height: 480px;
-
-        padding: 14px;
-
-        border-radius: 20px;
-
-    }
-
-
-    .ai-suggestions {
-
-        padding-left: 0;
-
-    }
-
-
-    .ai-title h3 {
-
-        font-size: 15px;
-
-    }
-
-
-    .ai-input-area input {
-
-        font-size: 11px;
-
-    }
-
-}
-
-
-
-.ai-advice {
-    margin-top: 10px;
-    padding: 9px 10px;
-    border-radius: 10px;
-    background: rgba(20, 170, 220, 0.08);
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-.ai-emergency {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(255, 80, 80, 0.10);
-    border: 1px solid rgba(255, 80, 80, 0.15);
-    color: #b42318;
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-.ai-action-btn {
-    margin-top: 8px;
-    padding: 7px 12px;
-    border: none;
-    border-radius: 10px;
-    background: #0b91c9;
-    color: white;
-    font-size: 10px;
-    cursor: pointer;
-}
-
-.ai-action-btn:hover {
-    transform: translateY(-1px);
-}
-
-.typing-dots span {
-    animation: typing 1.2s infinite;
-    font-size: 18px;
     font-weight: bold;
 }
 
-.typing-dots span:nth-child(2) {
-    animation-delay: .2s;
+
+.doctor-info h2 {
+    color: #075d80;
+
+    margin: 0 0 8px;
 }
 
-.typing-dots span:nth-child(3) {
-    animation-delay: .4s;
+
+.doctor-info h3 {
+    color: #0d8abc;
+
+    margin: 5px 0 15px;
 }
 
-@keyframes typing {
-    0%, 60%, 100% {
-        opacity: .25;
+
+.doctor-info p {
+    color: #536b75;
+
+    line-height: 1.5;
+
+    margin: 6px 0;
+}
+
+
+/* =========================
+   DEPARTMENT PAGE
+========================= */
+
+.department-section {
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 50px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+.department {
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.12);
+
+    border-left: 5px solid #0d8abc;
+
+    transition: 0.3s;
+}
+
+
+.department:hover {
+    transform: translateY(-5px);
+}
+
+
+.department h2 {
+    color: #075d80;
+
+    margin-top: 0;
+}
+
+
+.department p {
+    color: #536b75;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-section {
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 50px auto;
+}
+
+
+.about-content {
+    margin-bottom: 25px;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.12);
+}
+
+
+.about-content h2 {
+    color: #075d80;
+
+    margin-top: 0;
+}
+
+
+.about-content p {
+    color: #536b75;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 70px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #075d80;
+
+    color: white;
+}
+
+
+footer h3 {
+    margin: 0 0 8px;
+}
+
+
+footer p {
+    margin: 6px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+
+    /* Navbar */
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
     }
 
-    30% {
-        opacity: 1;
+
+    .menu {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
     }
+
+
+    /* Home */
+
+    .welcome-section {
+        padding: 50px 25px;
+    }
+
+
+    .welcome-text h1 {
+        font-size: 36px;
+    }
+
+
+    /* Food */
+
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Departments */
+
+    .department-section {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Doctors */
+
+    .doctor-profile {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    /* Page Header */
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
 }
